@@ -7,6 +7,7 @@ import {
   Drawer, Typography, Box, TablePagination, TextField, Select, MenuItem, InputLabel, FormControl
 } from '@mui/material';
 
+const API_BASE_URL = 'http://localhost:5001/api';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
