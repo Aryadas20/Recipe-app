@@ -7,7 +7,7 @@ import {
   Drawer, Typography, Box, TablePagination, TextField, Select, MenuItem, InputLabel, FormControl
 } from '@mui/material';
 
-const API_BASE_URL = 'http://localhost:5001/api';
+const API_BASE_URL = '/api';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -25,15 +25,15 @@ function App() {
       limit: rowsPerPage,
       ...filters,
     });
-    
+
     // Use search endpoint if filters are active, otherwise use the main endpoint
     const endpoint = (filters.title || filters.cuisine) ? '/recipes/search' : '/recipes';
-    
+
     axios.get(`${API_BASE_URL}${endpoint}?${params.toString()}`)
       .then(res => {
         setRecipes(res.data.data);
         // Search endpoint doesn't return total, so we get it from the main one if needed
-        setTotalRecipes(res.data.total || res.data.data.length); 
+        setTotalRecipes(res.data.total || res.data.data.length);
       })
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -51,7 +51,7 @@ function App() {
   const handleRowClick = (recipe) => {
     setSelectedRecipe(recipe);
   };
-  
+
   const handleDrawerClose = () => {
     setSelectedRecipe(null);
   };
@@ -59,7 +59,7 @@ function App() {
   return (
     <div className="container mx-auto p-8">
       <Typography variant="h4" className="mb-6 font-bold text-center">Recipe Finder 🍲</Typography>
-      
+
       {/* --- Filter Section --- */}
       <Paper className="p-4 mb-6 flex gap-4 items-center">
         <TextField label="Filter by Title" name="title" value={filters.title} onChange={handleFilterChange} variant="outlined" size="small" />
@@ -119,13 +119,13 @@ function App() {
             <>
               <Typography variant="h5" className="font-bold">{selectedRecipe.title}</Typography>
               <Typography variant="subtitle1" color="text.secondary" className="mb-4">{selectedRecipe.cuisine}</Typography>
-              
+
               <Typography variant="body1" className="mb-4">{selectedRecipe.description}</Typography>
-              
+
               <Typography variant="body2"><strong>Total Time:</strong> {selectedRecipe.total_time} min</Typography>
               <Typography variant="body2"><strong>Prep Time:</strong> {selectedRecipe.prep_time} min</Typography>
               <Typography variant="body2" className="mb-4"><strong>Cook Time:</strong> {selectedRecipe.cook_time} min</Typography>
-              
+
               <Typography variant="h6" className="font-semibold mt-4 mb-2">Nutrients</Typography>
               <Table size="small">
                 <TableBody>
