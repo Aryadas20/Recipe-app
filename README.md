@@ -18,6 +18,8 @@
 
 ## and then start the server using node server.js
 
+## HERE IS THE HOSTED WEBSITE LINK - https://recipe-app-five-opal.vercel.app/
+
 ## API TESTING
 
 ## for testing i have used curl command - to get the api result paste this type of url to get the result http://localhost:5000/api/recipes?page=1&limit=10
