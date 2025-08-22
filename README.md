@@ -18,7 +18,7 @@
 
 ## and then start the server using node server.js
 
-## HERE IS THE HOSTED WEBSITE LINK - https://recipe-app-five-opal.vercel.app/
+## HERE IS THE HOSTED WEBSITE LINK - https://recipe-app-git-main-aryadas20s-projects.vercel.app/
 
 ## API TESTING
 
